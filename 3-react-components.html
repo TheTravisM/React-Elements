@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React ⚛️</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Header(props){
+          console.log(props)  
+          return(
+                <header>
+                    <h1>{props.name} The Header</h1>
+                </header>
+            )
+        }
+        function Main(props){
+            return(
+                <section>
+                    <p>Main Section {props.adjective}</p>
+                    <h3>List of Superheros #{props.heroNum}</h3>
+                    <ul>
+                      {props.heros.map((hero) => (
+                        <li>{hero}</li>
+                        ))}
+                      </ul>
+                </section>
+            )
+        }
+        function Aside(){
+            return(
+                <aside>
+                    <p>Aside Section</p>
+                </aside>
+            )
+        }
+        function Footer(props){
+            return(
+                <footer>
+                    <p>Footer Section</p>
+                    <p>Copyright {props.year}</p>
+                </footer>
+            )
+        }
+
+        const heros = [
+          "superman",
+          "batman",
+          "spiderman",
+          "wonderman",
+          "sandman"
+        ]
+
+        function App(){
+            return(
+                <div>
+                  <Header name="Big Man"/>
+                  <Main adjective="amazing" heros={heros} heroNum={heros.length}/>
+                  <Aside/>
+                  <Footer year={new Date().getFullYear()}/>
+                </div>
+            )
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById("root")
+        );
+    </script>
+  </body>
+</html>

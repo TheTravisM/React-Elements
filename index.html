@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script
-      src="https://unpkg.com/react@17/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
-      crossorigin
-    ></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <title>React ⚛️</title>
   </head>
   <body>
-    <h1>Getting Started with React</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+      let heading = React.createElement(
+          "h1",
+          null,
+          "Get Er Done!"
+        );
+      let ul = React.createElement(
+        "ul",
+        {style:{color: "blue"}},
+        React.createElement("li",null,"Excellent"),
+        React.createElement("li",null,"Awesome"),
+        React.createElement("li",null,"Fantastic"),
+        React.createElement("li",null,"Excellent")
+      );
+      let robot = "robot"
+      let two = "two"
+      let name = "react"
+      ReactDOM.render(
+        <ul>
+          <li>{robot}</li>
+          <li>{two}</li>
+          
+        </ul>,
+        document.getElementById("root")
+      );
+    </script>
   </body>
 </html>
